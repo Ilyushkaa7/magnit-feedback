@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Форма отзывов Магнит</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+  }
+
+  form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .logo img {
+    max-width: 150px;
+    height: auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: normal;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #ff3b30;
+    color: #fff;
+  }
+
+  .reset-btn {
+    width: 100%;
+    background-color: #aaa;
+    color: #fff;
+  }
+
+  .select-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .select-group select {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .add-btn {
+    width: 40px;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 18px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .rating input {
+    display: none;
+  }
+  
+  .rating label {
+    font-size: 30px;
+    color: #ddd;
+    cursor: pointer;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+  
+  .rating label:hover,
+  .rating label:hover ~ label,
+  .rating input:checked ~ label {
+    color: #ff3b30;
+  }
+  
+  .store-select {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<form>
+
+  <div class="logo">
+    <img src="logotip.svg" alt="Магнит">
+  </div>
+
+  <h2>Ваш отзыв о магазине</h2>
+
+  <label for="name">ФИО</label>
+  <input type="text" id="name" placeholder="Дуров Павел Валерьевич">
+
+  <label>Оценка магазина</label>
+  <div class="rating">
+    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+  </div>
+
+  <label>Филиал</label>
+  <select class="store-select" id="store">
+    <option>Магнит ул. Жарова, 8, Иваново</option>
+    <option>Магнит Шереметевский проспект, 26, Иваново</option>
+    <option>Магнит ул. Полка Нормандии-Неман, 86А, Иваново</option>
+    <option>Магнит Микрорайон 14-е Почтовое Отделение, Иваново</option>
+    <option>Магнит Проспект Ленина, 100, Иваново</option>
+  </select>
+
+  <label>Что понравилось</label>
+  <div id="like-container">
+    <div class="select-group">
+      <select>
+        <option>Вежливость персонала</option>
+        <option>Чистота магазина</option>
+        <option>Цены</option>
+        <option>Качество товара</option>
+        <option>Ассортимент</option>
+        <option>Свежесть продуктов</option>
+        <option>Наличие парковки</option>
+        <option>Удобство навигации</option>
+        <option>Быстрое обслуживание</option>
+        <option>Акции и скидки</option>
+      </select>
+      <button type="button" class="add-btn" onclick="addSelect('like-container')">+</button>
+    </div>
+  </div>
+
+  <label>Что не понравилось</label>
+  <div id="dislike-container">
+    <div class="select-group">
+      <select>
+        <option>Вежливость персонала</option>
+        <option>Чистота магазина</option>
+        <option>Цены</option>
+        <option>Качество товара</option>
+        <option>Ассортимент</option>
+        <option>Свежесть продуктов</option>
+        <option>Наличие парковки</option>
+        <option>Удобство навигации</option>
+        <option>Быстрое обслуживание</option>
+        <option>Акции и скидки</option>
+      </select>
+      <button type="button" class="add-btn" onclick="addSelect('dislike-container')">+</button>
+    </div>
+  </div>
+
+  <label for="comment">Дополнительно</label>
+  <textarea id="comment" rows="5" placeholder="Ваши комментарии..."></textarea>
+
+  <button type="submit" class="submit-btn">Отправить отзыв</button>
+  <button type="reset" class="reset-btn">Очистить</button>
+
+</form>
+
+<script>
+function addSelect(containerId) {
+  const container = document.getElementById(containerId);
+  const groups = container.getElementsByClassName('select-group');
+
+  if (groups.length >= 5) {
+    alert('Можно выбрать не более 5 вариантов');
+    return;
+  }
+
+  const newGroup = document.createElement('div');
+  newGroup.className = 'select-group';
+
+  // Определяем какие опции добавлять (берем из первого селекта)
+  const firstSelect = container.querySelector('select');
+  const options = [];
+  for (let i = 0; i < firstSelect.options.length; i++) {
+    options.push(firstSelect.options[i].text);
+  }
+
+  let optionsHtml = '';
+  options.forEach(opt => {
+    optionsHtml += `<option>${opt}</option>`;
+  });
+
+  newGroup.innerHTML = `
+    <select>
+      ${optionsHtml}
+    </select>
+  `;
+
+  container.appendChild(newGroup);
+}
+
+// Добавляем обработку отправки формы
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Проверка оценки
+  const rating = document.querySelector('input[name="rating"]:checked');
+  if (!rating) {
+    alert('Пожалуйста, поставьте оценку магазину');
+    return;
+  }
+  
+  // Проверка ФИО
+  const name = document.getElementById('name').value.trim();
+  if (!name) {
+    alert('Пожалуйста, введите ФИО');
+    return;
+  }
+  
+  alert('Спасибо за отзыв!');
+  // Здесь можно добавить реальную отправку на сервер
+});
+
+// Обработка сброса формы
+document.querySelector('button[type="reset"]').addEventListener('click', function() {
+  // Сбрасываем добавленные поля
+  document.getElementById('like-container').innerHTML = `
+    <div class="select-group">
+      <select>
+        <option>Вежливость персонала</option>
+        <option>Чистота магазина</option>
+        <option>Цены</option>
+        <option>Качество товара</option>
+        <option>Ассортимент</option>
+        <option>Свежесть продуктов</option>
+        <option>Наличие парковки</option>
+        <option>Удобство навигации</option>
+        <option>Быстрое обслуживание</option>
+        <option>Акции и скидки</option>
+      </select>
+      <button type="button" class="add-btn" onclick="addSelect('like-container')">+</button>
+    </div>
+  `;
+  
+  document.getElementById('dislike-container').innerHTML = `
+    <div class="select-group">
+      <select>
+        <option>Вежливость персонала</option>
+        <option>Чистота магазина</option>
+        <option>Цены</option>
+        <option>Качество товара</option>
+        <option>Ассортимент</option>
+        <option>Свежесть продуктов</option>
+        <option>Наличие парковки</option>
+        <option>Удобство навигации</option>
+        <option>Быстрое обслуживание</option>
+        <option>Акции и скидки</option>
+      </select>
+      <button type="button" class="add-btn" onclick="addSelect('dislike-container')">+</button>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
