@@ -1,8 +1,49 @@
-    Вопрос 1: почему я не могу добавить больше 5 пунктов в разделы «Что понравилось» или «Что не понравилось»?	
-Ответ: Программно установлено ограничение на количество выбираемых вариантов для одного отзыва, чтобы стимулировать пользователя выделять только самые важные аспекты. При попытке добавить шестой пункт система выдаст предупреждение.
-    Вопрос 2: что произойдет после нажатия кнопки «Отправить отзыв»?
-Ответ: Введенные вами данные будут упакованы в специальный формат и отправлены на сервер компании. После обработки отзыв поступит в систему контроля качества магазинов.
-    Вопрос 3: обязательно ли заполнять поле «Дополнительно»?
-Ответ: нет, поле «Дополнительно» не является обязательным. Оно предназначено для тех случаев, когда у вас есть развернутый комментарий, не укладывающийся в рамки стандартных пунктов списка.
-    Вопрос 4: можно ли исправить ошибку в поле «ФИО» после того, как я нажал «Отправить»?	
-Ответ: нет, после отправки форма становится недоступна для редактирования. Если вы допустили ошибку, можно оставить еще один отзыв, указав верные данные. Кнопка «Очистить» позволяет сбросить форму до отправки.
+# Magnit Feedback Form
+
+Educational feedback form for a retail store, made as a college project about user feedback forms.
+
+The project is a small static website where a customer can choose a store branch, set a rating, select what they liked or disliked, and leave an additional comment.
+
+> This is an unofficial educational project. It is not connected with the real Magnit company.
+
+## Live Demo
+
+[Open GitHub Pages](https://ilyushkaa7.github.io/magnit-feedback/)
+
+## Screenshot
+
+![Feedback form screenshot](form.png)
+
+## Features
+
+- Customer name input
+- Store branch selection
+- Five-star rating
+- Dynamic lists for positive and negative feedback
+- Limit of 5 selected items per feedback block
+- Form validation before submission
+- Reset button that clears added fields
+- Responsive layout for desktop and mobile screens
+
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- GitHub Pages
+
+## My Role
+
+I made this project during college while HTML, CSS, and JavaScript were not part of our main program yet. I studied the basics myself, built the form, added the JavaScript logic, and explained how the code works during the assignment.
+
+## Project Notes
+
+The form is a frontend demo. It does not send data to a real server. After validation, it shows a success message to simulate feedback submission.
+
+The main goal was to practice:
+
+- semantic form structure
+- basic styling
+- simple JavaScript validation
+- dynamic creation of form fields
+- preparing a small website for GitHub Pages

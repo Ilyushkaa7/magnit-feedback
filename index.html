@@ -2,11 +2,15 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Educational feedback form for a retail store, created as a college HTML, CSS and JavaScript project.">
 <title>Форма отзывов Магнит</title>
 
 <style>
   body {
     font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     justify-content: center;
     padding: 40px;
@@ -130,6 +134,20 @@
   .store-select {
     margin-bottom: 20px;
   }
+
+  @media (max-width: 560px) {
+    body {
+      padding: 20px 12px;
+    }
+
+    form {
+      padding: 24px 18px;
+    }
+
+    .select-group {
+      gap: 8px;
+    }
+  }
 </style>
 </head>
 
@@ -144,7 +162,7 @@
   <h2>Ваш отзыв о магазине</h2>
 
   <label for="name">ФИО</label>
-  <input type="text" id="name" placeholder="Дуров Павел Валерьевич">
+  <input type="text" id="name" name="name" placeholder="Дуров Павел Валерьевич" required>
 
   <label>Оценка магазина</label>
   <div class="rating">
@@ -156,7 +174,7 @@
   </div>
 
   <label>Филиал</label>
-  <select class="store-select" id="store">
+  <select class="store-select" id="store" name="store">
     <option>Магнит ул. Жарова, 8, Иваново</option>
     <option>Магнит Шереметевский проспект, 26, Иваново</option>
     <option>Магнит ул. Полка Нормандии-Неман, 86А, Иваново</option>
@@ -203,7 +221,7 @@
   </div>
 
   <label for="comment">Дополнительно</label>
-  <textarea id="comment" rows="5" placeholder="Ваши комментарии..."></textarea>
+  <textarea id="comment" name="comment" rows="5" placeholder="Ваши комментарии..."></textarea>
 
   <button type="submit" class="submit-btn">Отправить отзыв</button>
   <button type="reset" class="reset-btn">Очистить</button>
